@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stro is your private memory for the conversations that matter. Mac-native AI meeting recorder with local-first privacy.">
+  <title>Stro – AI-Powered Meeting Assistant for macOS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #1F2937;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #1F2937;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .cta-button {
+      background-color: #3B82F6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s;
+      font-size: 0.9rem;
+    }
+    .cta-button:hover {
+      background-color: #2563EB;
+      transform: scale(1.02);
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 90%;
+      margin: 0 auto 2rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 4rem 1rem;
+      background-color: #F8F9FA;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      width: 90%;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .feature-card[data-animate] {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .feature-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .product-preview {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .product-preview img {
+      max-width: 100%;
+      margin: 2rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .download-section {
+      text-align: center;
+      background: #3B82F6;
+      color: white;
+      padding: 4rem 1rem;
+    }
+    .download-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .download-section a {
+      background: white;
+      color: #3B82F6;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .download-section a:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #F3F4F6;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+    }
+    @media (min-width: 640px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.25rem; }
+      .feature-card { width: 300px; }
+      .download-section h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('[data-animate]');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+  <header>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <strong>Stro</strong>
+    </div>
+    <nav>
+      <a href="#how-it-works">Features</a>
+      <a href="#preview">Screenshots</a>
+      <a href="#download">Download</a>
+    </nav>
+    <a href="#download" class="cta-button">Download for Mac</a>
+  </header>
+
+  <section class="hero">
+    <h1>Stro — Record. Summarize. Focus.</h1>
+    <p>Turn every meeting into actionable knowledge with Stro, your privacy-first macOS tool for real-time transcription, quick notes, and clear summaries.</p>
+    <a href="#download" class="cta-button">Download for macOS</a>
+  </section>
+
+  <section class="features" id="how-it-works">
+    <div class="feature-card" data-animate>
+      <h3>🎙️ Transcribe as You Talk</h3>
+      <p>Stro captures your meetings in real-time and transcribes them automatically. Stay focused on the conversation — Stro handles the rest.</p>
+    </div>
+    <div class="feature-card" data-animate>
+      <h3>🗒️ Add Quick Notes</h3>
+      <p>Jot down your own notes or highlight key moments. They stay timestamped and synced with the transcript.</p>
+    </div>
+    <div class="feature-card" data-animate>
+      <h3>🧠 Structured Summaries</h3>
+      <p>Once your meeting ends, Stro generates a clean summary with key points, decisions, and next steps.</p>
+    </div>
+    <div class="feature-card" data-animate>
+      <h3>🔒 Built for Privacy</h3>
+      <p>Your audio never leaves your Mac. Only transcripts are lightly processed for summaries. No raw recordings go to the cloud. You’re always in control.</p>
+    </div>
+  </section>
+
+  <section class="product-preview" id="preview">
+    <h2>See Stro in Action</h2>
+    <p>Take a look at Stro’s interface — from recording to transcript to summary.</p>
+    <img src="https://via.placeholder.com/600x200?text=Recording+Widget" alt="Recording Widget UI">
+    <img src="https://via.placeholder.com/600x300?text=Summary+View" alt="Summary View UI">
+    <img src="https://via.placeholder.com/600x300?text=Transcript+Summary" alt="Transcript Summary UI">
+    <img src="https://via.placeholder.com/600x300?text=Dashboard+UI" alt="Meeting Dashboard UI">
+  </section>
+
+  <section class="download-section" id="download">
+    <h2>Start Capturing Smarter Meetings</h2>
+    <p>Download Stro today and get your first meeting transcribed and summarized instantly.</p>
+    <a href="https://stro.app/download/Stro.dmg">Download for macOS</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Stro Technologies Inc. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Contact</a></p>
+  </footer>
+</body>
+</html>
